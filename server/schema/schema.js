@@ -48,6 +48,13 @@ const RootQuery = new GraphQLObjectType({
         return dummyBooks.find(book => book.id === args.id);
       }
     },
+    author: {
+      type: AuthorType,
+      args: { id: { type: GraphQLID }},
+      resolve(parent, args) {
+        return dummyAuthor.find(author => author.id === args.id);
+      }
+    },
   }
 });
 
